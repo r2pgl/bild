@@ -7,8 +7,6 @@ import (
 	"image/png"
 	"io"
 	"os"
-
-	"golang.org/x/image/bmp"
 )
 
 // Encoder encodes the provided image and writes it
@@ -47,13 +45,6 @@ func JPEGEncoder(quality int) Encoder {
 func PNGEncoder() Encoder {
 	return func(w io.Writer, img image.Image) error {
 		return png.Encode(w, img)
-	}
-}
-
-// BMPEncoder returns an encoder to BMP
-func BMPEncoder() Encoder {
-	return func(w io.Writer, img image.Image) error {
-		return bmp.Encode(w, img)
 	}
 }
 
